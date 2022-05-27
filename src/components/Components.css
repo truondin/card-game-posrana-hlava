@@ -1,0 +1,281 @@
+h1{
+    margin:0;
+}
+
+.game{
+    color: black;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    background-color: #297350;
+    color: #F2F2F2;
+    min-height: 5vh;
+    width: 100%;
+}
+
+.menu h1{
+    padding: 10px;
+}
+
+.menuItem{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: 100ms linear;
+}
+
+.menuItem:hover, .menuItem:active{
+    cursor: pointer;
+    background-color: #16402c;
+}
+
+.turnInfo{
+    /*background-color: yellow;*/
+    display: flex;
+    justify-content: center;
+    min-height: 5vh;
+    color: #F2F2F2;
+    transition: linear;
+}
+
+.deck{
+    width: 9em;
+    height: 14em;
+    border: solid 1px black;
+    border-radius: 15px;
+    background-color: #F2F2F2;
+}
+
+.playDeck, .playDeck-empty{
+    width: 9em;
+    height: 14em;
+    border: solid 1px black;
+    border-radius: 15px;
+    background-color: #F2F2F2;
+    transition: 100ms linear;
+}
+
+.playDeck:hover {
+    border: solid 5px #d33035;
+    cursor: pointer;
+}
+
+.otherPlayers{
+    display: flex;
+    flex-direction: column;
+    /*background-color: aqua;*/
+    min-width: 50vh;
+    color: #F2F2F2;
+}
+
+
+.deckBackground-outside{
+    display: flex;
+    /*background-color: red;*/
+    min-height: 25vh;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*.deckBackground-inside{*/
+/*    display: flex;*/
+/*    !*background-color: cornflowerblue;*!*/
+/*    min-height: 30vh;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
+/*    flex-grow: 2;*/
+/*}*/
+
+.playerBackground{
+    display: flex;
+    min-height: 60vh;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /*background-color: cornflowerblue;*/
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+.cardTrio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.handCards{
+    width: 100%;
+    display: flex;
+    /*flex-direction: row;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.slider{
+    max-width: 40%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-hide{
+    display: none;
+}
+
+.slider-left, .slider-right{
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: 250ms linear;
+}
+
+.slider-left:hover, .slider-right:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: stretch;
+    height: 100%;
+    color: #241f23;
+}
+
+.suit-up, .suit-down{
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+.suit-down{
+    display: flex;
+    align-self: flex-end;
+}
+
+.red{
+    color: #d33035;
+}
+
+.cardValue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.card, .card-forbidden, .card-hidden, .card-hidden-forbidden{
+    display: inline-block;
+    width: 7em;
+    height: 12em;
+    /*border: solid 1px black;*/
+    border-radius: 15px;
+    background-color: #F2F2F2;
+    margin: 10px;
+    transition: 100ms linear;
+}
+
+.card{
+    border: solid 3px black;
+}
+
+.card:hover, .card-hidden:hover{
+    border: solid 5px #FFCD38;
+    cursor: pointer;
+}
+
+.cardContainer{
+    perspective: 1000px;
+}
+
+.cardContainer .cardCheck{
+    display: none;
+}
+
+.cardContainer .cardCheck:checked + .card-hidden{
+    transform: rotateY(180deg);
+}
+
+.card-hidden, .card-hidden-forbidden{
+    position: relative;
+    /*transition: all 0.75s linear;*/
+    transition: transform 500ms;
+    transform-style: preserve-3d;
+}
+
+
+.frontCard, .backCard{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 15px;
+}
+
+.frontCard{
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.backCard{
+    background: #F2F2F2;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+@media screen and (max-width: 700px) {
+    .menu h1{
+        display: none;
+    }
+
+    .turnInfo{
+        font-size: small;
+    }
+
+    .card, .card-forbidden, .card-hidden, .card-hidden-forbidden{
+        display: inline-block;
+        width: 6em;
+        height: 10em;
+    }
+
+    .deck{
+        width: 7em;
+        height: 11em;
+        border: solid 1px black;
+        border-radius: 15px;
+        background-color: #F2F2F2;
+    }
+
+    .slider-hide{
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #F2F2F2;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        opacity: 0.3;
+        transition: 250ms linear;
+    }
+}

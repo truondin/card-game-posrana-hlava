@@ -1,0 +1,15 @@
+.App {
+  background-color: #2C3740;
+  color: #F2F2F2;
+  min-height: 100vh;
+}
+
+body{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
