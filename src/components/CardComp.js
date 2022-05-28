@@ -17,8 +17,8 @@ function CardComp(props) {
             audio.currentTime = 0.15
             audio.volume = 0.4
             audio.play()
-            props.playCard(card)
         }
+            props.playCard(card)
     }
 
     const flip = () => {
@@ -47,7 +47,6 @@ function CardComp(props) {
                 </div>)
         }else{
             return (
-                // todo create spojeni k checkboxu + opravit to co nefunguje u hidden
                 <div className={"cardContainer"}
                      onClick={() => {flipClick(props.cardSuit.toString() + props.cardValue.toString())}}
                      onTransitionEndCapture={flip}
