@@ -44,15 +44,25 @@ function HandCards(props) {
 
     useEffect(() => {
         getCards()
-    }, [props.handCards, props.canPlay])
+    }, [props.handCards, props.canPlay, cards])
+
+    const getSliders = (side) => {
+        if (side === "left"){
+            return cards.length > 0 ?<span className={cards.length > 6 ? "slider-left": "slider-hide"} onClick={slideLeft}> &lt;</span>: ""
+        }else{
+            return cards.length > 0 ? <span className={cards.length > 6 ? "slider-right": "slider-hide"} onClick={slideRight}>&gt;</span>: ""
+        }
+    }
 
     return (
         <div className={"handCards"}>
-            <span className={cards.length > 6 ? "slider-left": "slider-hide"} onClick={slideLeft}> &lt;</span>
+            {/*<span className={cards.length > 6 ? "slider-left": "slider-hide"} onClick={slideLeft}> &lt;</span>*/}
+            {getSliders("left")}
             <div className={"slider"}>
                 {cards}
             </div>
-            <span className={cards.length > 6 ? "slider-right": "slider-hide"} onClick={slideRight}>&gt;</span>
+            {/*<span className={cards.length > 6 ? "slider-right": "slider-hide"} onClick={slideRight}>&gt;</span>*/}
+            {getSliders("right")}
         </div>
     );
 }
