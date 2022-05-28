@@ -24,9 +24,6 @@ const playerBot = new PlayerBot([takingDeckModel.pop(), takingDeckModel.pop(), t
 const winS = new Audio(winSound)
 const loseS = new Audio(loseSound)
 
-for (let i =0; i < 40 -9; i++){
-    takingDeckModel.pop()
-}
 
 function Game(props) {
     const [takingDeck, setTakingDeck] = useState(takingDeckModel);
