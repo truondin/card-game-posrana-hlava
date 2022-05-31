@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/card-game-posrana-hlava/static/css/main.7e021ea5.css",
+    "main.css": "/card-game-posrana-hlava/static/css/main.85103033.css",
     "main.js": "/card-game-posrana-hlava/static/js/main.b74b31fe.js",
     "static/js/787.7c2745de.chunk.js": "/card-game-posrana-hlava/static/js/787.7c2745de.chunk.js",
     "static/media/takeDeck.mp3": "/card-game-posrana-hlava/static/media/takeDeck.8fb5016039664f326bb6.mp3",
@@ -8,12 +8,12 @@
     "static/media/win.mp3": "/card-game-posrana-hlava/static/media/win.3a012c517f210d2f9718.mp3",
     "static/media/card.mp3": "/card-game-posrana-hlava/static/media/card.ab6c9c7c43eb5d230ce4.mp3",
     "index.html": "/card-game-posrana-hlava/index.html",
-    "main.7e021ea5.css.map": "/card-game-posrana-hlava/static/css/main.7e021ea5.css.map",
+    "main.85103033.css.map": "/card-game-posrana-hlava/static/css/main.85103033.css.map",
     "main.b74b31fe.js.map": "/card-game-posrana-hlava/static/js/main.b74b31fe.js.map",
     "787.7c2745de.chunk.js.map": "/card-game-posrana-hlava/static/js/787.7c2745de.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e021ea5.css",
+    "static/css/main.85103033.css",
     "static/js/main.b74b31fe.js"
   ]
 }
