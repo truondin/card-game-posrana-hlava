@@ -30,12 +30,8 @@ function ExposedCards(props) {
     }
 
     useEffect(() => {
-        getCards()
-    }, [props.canPlay])
-
-    useEffect(() => {
             getCards()
-        }, [props.exposedCards]
+        }, [props.canPlay, props.exposedCards]
     )
 
     return (

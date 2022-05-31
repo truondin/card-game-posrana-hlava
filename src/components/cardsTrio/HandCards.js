@@ -44,7 +44,7 @@ function HandCards(props) {
 
     useEffect(() => {
         getCards()
-    }, [props.handCards, props.canPlay, cards])
+    }, [props.handCards, props.canPlay])
 
     const getSliders = (side) => {
         if (side === "left"){
