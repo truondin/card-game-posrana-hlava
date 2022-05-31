@@ -3,9 +3,9 @@ import {useState} from "react";
 import "./Loader.css"
 import sound from "./../../audio/takeDeck.mp3"
 
+const audio = new Audio(sound)
 function PlayDeck(props) {
     // const [topCard, setTopCard] = useState(props.deck.peek())
-    const audio = new Audio(sound)
 
     // useEffect(() => {
     //     setTopCard(props.deck.peek())

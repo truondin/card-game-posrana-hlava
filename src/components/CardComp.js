@@ -3,10 +3,11 @@ import "./Components.css"
 import CardModel from "../models/CardModel";
 import sound from "./../audio/card.mp3"
 
+const audio = new Audio(sound)
+
 function CardComp(props) {
     const [isHid, setIsHid] = useState(props.isHid)
     const [card] = useState(new CardModel(props.cardSuit, props.cardValue))
-    const audio = new Audio(sound)
 
     const canPlay = () => {
         return props.canPlay && props.cardCanPlay(card)
