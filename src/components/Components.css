@@ -196,8 +196,12 @@ h1{
     transition: 100ms linear;
 }
 
+.card-forbidden, .card-hidden-forbidden{
+    opacity: 0.5;
+}
+
 .card{
-    border: solid 3px black;
+    border: solid 2px black;
 }
 
 .card:hover, .card-hidden:hover{
