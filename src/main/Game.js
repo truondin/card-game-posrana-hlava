@@ -235,27 +235,39 @@ function Game(props) {
 
     // game loop between player and bot
     useEffect(() => {
-        if (!isPlaying){
-            setTimeout(() => {
-                let topCard = playingDeck.peek()
-                let card = playerBot.play(topCard)
+        if (!showEndgame){
+            if (!isPlaying){
+                setTimeout(() => {
+                    let topCard = playingDeck.peek()
+                    let card = playerBot.play(topCard)
 
-                if (card !== null){
-                    if (canPlayCard(card)){
-                        applyCardRules(card)
+                    if (card !== null){
+                        if (canPlayCard(card)){
+                            applyCardRules(card)
 
-                        if (playerBot.needCard()) {
-                            if (takingDeckModel.getNumberOfCards() > 0) {
-                                let newCard = takingDeckModel.pop()
-                                setTakingDeck(takingDeckModel)
-                                playerBot.takeCard(newCard)
+                            if (playerBot.needCard()) {
+                                if (takingDeckModel.getNumberOfCards() > 0) {
+                                    let newCard = takingDeckModel.pop()
+                                    setTakingDeck(takingDeckModel)
+                                    playerBot.takeCard(newCard)
+                                }
                             }
-                        }
 
-                    }
-                    else{
+                        }
+                        else{
+                            let size = playingDeckModel.getNumberOfCards()
+                            let toAdd = [card]
+                            for (let i = 0; i < size; i++) {
+                                let c = playingDeckModel.pop()
+                                setPlayingDeck(playingDeckModel)
+                                toAdd.push(c)
+                            }
+
+                            playerBot.takeDeck(toAdd)
+                        }
+                    }else{
                         let size = playingDeckModel.getNumberOfCards()
-                        let toAdd = [card]
+                        let toAdd = []
                         for (let i = 0; i < size; i++) {
                             let c = playingDeckModel.pop()
                             setPlayingDeck(playingDeckModel)
@@ -264,39 +276,29 @@ function Game(props) {
 
                         playerBot.takeDeck(toAdd)
                     }
-                }else{
-                    let size = playingDeckModel.getNumberOfCards()
-                    let toAdd = []
-                    for (let i = 0; i < size; i++) {
-                        let c = playingDeckModel.pop()
-                        setPlayingDeck(playingDeckModel)
-                        toAdd.push(c)
+
+
+                    if (playerBot.hasWon()){
+                        loseS.volume = 0.4
+                        loseS.currentTime = 0.5
+                        loseS.play()
+                        loseS.play()
+                        setShowEndgame(true)
+                        setWinner(0)
                     }
-
-                    playerBot.takeDeck(toAdd)
-                }
-
-
-                if (playerBot.hasWon()){
-                    loseS.volume = 0.4
-                    loseS.currentTime = 0.5
-                    loseS.play()
-                    loseS.play()
-                    setShowEndgame(true)
-                    setWinner(0)
-                }
-                setIsPlaying(true)
-            }, 2000)
-        }
-        if (playerHandCards.length <= 0 && playerExposedCards.length <= 0 && playerHiddenCards.length <= 0){
-            console.log("win")
-            winS.volume = 0.4
-            winS.currentTime = 0.5
-            winS.play()
-            setShowEndgame(true)
-            setWinner(1)
-        }else{
-            console.log("no win yet")
+                    setIsPlaying(true)
+                }, 2000)
+            }
+            if (playerHandCards.length <= 0 && playerExposedCards.length <= 0 && playerHiddenCards.length <= 0){
+                console.log("win")
+                winS.volume = 0.4
+                winS.currentTime = 0.5
+                winS.play()
+                setShowEndgame(true)
+                setWinner(1)
+            }else{
+                console.log("no win yet")
+            }
         }
 
     }, [isPlaying])
